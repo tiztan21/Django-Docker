@@ -1,9 +1,9 @@
 FROM python:alpine3.16
+RUN mkdir /code
+WORKDIR /code
 
-WORKDIR usr/src/app
+copy requirements.txt /code/
 
-copy requirements.txt .
+run python -m pip install -r requirements.txt
 
-run pip install -r requirements.txt
-
-copy . .
+copy . /code/
